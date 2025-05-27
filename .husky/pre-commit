@@ -1,0 +1,2 @@
+# bun
+bun exec lint-staged
