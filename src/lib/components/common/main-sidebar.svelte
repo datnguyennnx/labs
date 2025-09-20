@@ -14,7 +14,7 @@
     }
 
     const taskItems: MenuItem[] = [
-        { title: 'Backtesting', href: '/backtesting', icon: ArrowDownUpIcon },
+        { title: 'Text Diff', href: '/text-diff', icon: ArrowDownUpIcon },
     ];
 </script>
 

@@ -1,0 +1,215 @@
+/* Text Diff - Clean Color System */
+
+:root {
+    /* Core colors */
+    --diff-green: #22c55e;
+    --diff-red: #ef4444;
+    --diff-yellow: #eab308;
+    --diff-blue: #3b82f6;
+
+    /* Background colors */
+    --diff-bg-added: rgba(34, 197, 94, 0.1);
+    --diff-bg-removed: rgba(239, 68, 68, 0.1);
+    --diff-bg-modified: rgba(234, 179, 8, 0.1);
+    --diff-bg-current: rgba(59, 130, 246, 0.1);
+
+    /* Dark mode overrides */
+    --diff-bg-added-dark: rgba(34, 197, 94, 0.2);
+    --diff-bg-removed-dark: rgba(239, 68, 68, 0.2);
+    --diff-bg-modified-dark: rgba(234, 179, 8, 0.2);
+    --diff-bg-current-dark: rgba(59, 130, 246, 0.2);
+}
+
+/* Dark mode support */
+.dark {
+    --diff-bg-added: var(--diff-bg-added-dark);
+    --diff-bg-removed: var(--diff-bg-removed-dark);
+    --diff-bg-modified: var(--diff-bg-modified-dark);
+    --diff-bg-current: var(--diff-bg-current-dark);
+}
+
+/* Core diff line styles */
+.diff-line-added {
+    background-color: var(--diff-bg-added);
+    border-left: 3px solid var(--diff-green);
+}
+
+.diff-line-removed {
+    background-color: var(--diff-bg-removed);
+    border-left: 3px solid var(--diff-red);
+}
+
+.diff-line-modified {
+    background-color: var(--diff-bg-modified);
+    border-left: 3px solid var(--diff-yellow);
+}
+
+.diff-line-unchanged {
+    border-left-color: transparent;
+}
+
+.diff-line-current {
+    background-color: var(--diff-bg-current);
+    border: 1px solid var(--diff-blue);
+    border-radius: 4px;
+}
+
+.diff-line-hover:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .diff-line-hover:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Stats and UI elements */
+.diff-stats-added {
+    color: var(--diff-green);
+    font-weight: 500;
+}
+
+.diff-stats-removed {
+    color: var(--diff-red);
+    font-weight: 500;
+}
+
+.diff-stats-total {
+    color: var(--muted-foreground);
+    font-weight: 400;
+}
+
+/* Separator line for unified view */
+.diff-line-separator {
+    background-color: var(--muted);
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Text Diff Line Number Alignment */
+.text-line-numbers {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* Perfect alignment with text content */
+    padding-top: 16px; /* 24px line height - 8px font size adjustment */
+    line-height: 24px;
+}
+
+.text-line-number {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    font-family:
+        ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    color: hsl(var(--muted-foreground) / 0.7);
+    user-select: none;
+    padding-right: 12px;
+    transition: color 0.2s ease;
+    position: relative;
+    z-index: 10;
+    /* Perfect alignment with text lines */
+    vertical-align: baseline;
+    margin: 0;
+}
+
+.text-textarea {
+    line-height: 24px;
+    font-size: 14px;
+    font-family: ui-monospace, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* Background colors for views */
+.diff-bg-primary {
+    background-color: hsl(var(--background));
+}
+
+/* Text colors */
+.diff-text-quaternary {
+    color: hsl(var(--muted-foreground) / 0.6);
+}
+
+/* Legacy alias for backward compatibility */
+.diff-text-secondary {
+    color: hsl(var(--muted-foreground) / 0.7);
+}
+
+/* Border colors */
+.diff-border-light {
+    border-color: hsl(var(--border) / 0.4);
+}
+
+.diff-border-transparent {
+    border-color: transparent;
+}
+
+/* Text colors for consistent styling */
+.diff-text-muted {
+    color: hsl(var(--muted-foreground));
+}
+
+.diff-text-muted-secondary {
+    color: hsl(var(--muted-foreground) / 0.7);
+}
+
+.diff-text-muted-tertiary {
+    color: hsl(var(--muted-foreground) / 0.6);
+}
+
+.diff-text-placeholder {
+    color: hsl(var(--muted-foreground) / 0.6);
+}
+
+.diff-text-gray {
+    color: hsl(var(--muted-foreground) / 0.4);
+}
+
+.diff-bg-muted {
+    background-color: hsl(var(--muted) / 0.1);
+}
+
+.diff-bg-muted-light {
+    background-color: hsl(var(--muted) / 0.2);
+}
+
+/* Drag and Drop Styles */
+.drag-drop-overlay {
+    backdrop-filter: blur(4px);
+    border: 2px dashed hsl(var(--accent));
+    background: hsl(var(--accent) / 0.05);
+}
+
+.drag-drop-text {
+    color: hsl(var(--accent));
+    font-weight: 500;
+}
+
+.drag-drop-subtext {
+    color: hsl(var(--muted-foreground));
+    font-size: 12px;
+}
+
+/* Custom scrollbar */
+.scrollbar-text::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.scrollbar-text::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-text::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+}
+
+.scrollbar-text::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+}
+
+.scrollbar-text::-webkit-scrollbar-corner {
+    background: transparent;
+}
